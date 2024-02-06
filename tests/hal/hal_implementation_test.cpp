@@ -98,7 +98,7 @@ static const std::set<std::string> kKnownMissingHidl = {
     "android.hardware.memtrack@1.0",
     "android.hardware.neuralnetworks@1.3", // converted to AIDL, see b/161428342
     "android.hardware.nfc@1.2",
-    "android.hardware.oemlock@1.0",
+    "android.hardware.oemlock@1.0", // converted to AIDL, see b/176107318 b/282160400
     "android.hardware.power@1.3",
     "android.hardware.power.stats@1.0",
     "android.hardware.radio@1.6", // converted to AIDL
@@ -217,6 +217,13 @@ static const std::set<std::string> kAlwaysMissingAidl = {
      * run during normal boot, only in recovery/fastboot mode.
      */
     "android.hardware.fastboot",
+    /**
+     * No implementation for usb gadget HAL because cuttlefish doesn't
+     * support usb gadget configfs, and currently there is no
+     * plan to add this support.
+     * Context: (b/130076572, g/android-idl-discuss/c/0SaiY0p-vJw/)
+     */
+    "android.hardware.usb.gadget",
 };
 
 /*
